@@ -1,3 +1,18 @@
+## THIS FORK
+
+- [IMPROVEMENT] Support for configuring optional min/max duration threshold values for ignored endpoints
+  
+  Syntax is: `ClassName#method_name[:<min>[:<max>]]`, where `min` and `max` are in milliseconds.
+  
+  Examples:
+    ```yaml
+    ignore_endpoints:
+    - MyController#my_action # ignore this endpoint
+    - MyController#my_other_action:500 # ignore this endpoint when processing duration is < 0.5s
+    - MyController#another_action:200:6000 # ignore this endpoint when processing duration is < 0.2s or > 6s
+    - MyController#another_action:0:1000 # ignore this endpoint when processing duration is > 1s
+    ```
+
 ## 7.0.0 (September 16, 2025)
 
 - IMPROVEMENT Initial (beta) support for AWS Lambda
